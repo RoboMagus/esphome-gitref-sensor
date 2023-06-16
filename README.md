@@ -26,6 +26,9 @@ text_sensor:
     dirty: "-dirty"
 ```
 
+Which for a clean config on the `dev` branch of a repo would yield in a sensor value as shown in the HomeAssistant example below:
+![HA_sensor_example](./docs/ha_sensor_example.PNG)
+
 ### Configuration Options
 
 Most options available to this sensor are flags for the [`git describe` command](https://git-scm.com/docs/git-describe).
@@ -51,5 +54,4 @@ This includes the following:
 - Local `external_components`. I.e. external components that exist in the config directory and are not pulled from e.g. github.
 
 If there are uncommitted changes to any of these files, the provided `dirty` suffix will be added to the `git describe` output.
-
 

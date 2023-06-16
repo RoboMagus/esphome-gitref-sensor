@@ -1,0 +1,33 @@
+substitutions:
+  friendly_name: GitRef example
+
+esphome:
+  name: gitref-example
+
+esp32:
+  board: wemos_d1_mini32
+  framework:
+    type: arduino
+  
+external_components:
+  - source: github://RoboMagus/esphome-gitref-sensor
+
+wifi:
+  ssid: !secret WiFi_ssid
+  password: !secret WiFi_password
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  password: !secret ota_password
+
+text_sensor:
+  - platform: git_ref
+    name: "${friendly_name} Git Ref"
+    long: true
+    all: true
+    abbrev: 16
+    dirty: "-dirty"
